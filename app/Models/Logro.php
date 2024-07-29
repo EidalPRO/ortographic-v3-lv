@@ -15,6 +15,7 @@ class Logro extends Model
     protected $fillable = [
         'nombre', // Nombre del logro
         'imagen', // Ruta opcional a la imagen del logro
+        'descripcion',
         'user_id', // ID del usuario que obtuvo el logro
     ];
 

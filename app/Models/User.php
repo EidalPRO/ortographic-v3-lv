@@ -46,4 +46,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function logros()
+    {
+        return $this->hasMany(Logro::class, 'user_id');
+    }
 }

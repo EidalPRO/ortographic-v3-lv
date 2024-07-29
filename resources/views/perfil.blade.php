@@ -133,15 +133,14 @@
                                         perfil</button>
                                 </li>
 
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <button class="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#profile-change-password">Cambiar contraseña</button>
-                                </li>
+                                </li> --}}
 
                             </ul>
                             <div class="tab-content pt-2">
                                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                                    {{-- <h5 class="card-title">Detalles</h5> --}}
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">Nombre de usuario</div>
                                         <div class="col-lg-9 col-md-8">{{ $nombre }}</div>
@@ -158,6 +157,17 @@
                                         <div class="col-lg-3 col-md-4 label">Fecha de creación de la cuenta</div>
                                         <div class="col-lg-9 col-md-8">{{ $creado_el }}</div>
                                     </div>
+                                    <h5 class="card-title">Logros</h5>
+                                    <ul>
+                                        @foreach ($logros as $logro)
+                                            <li>
+                                                <img src="{{ asset($logro->imagen) }}"
+                                                    alt="Imagen del logro {{ $logro->nombre }}"
+                                                    style="width: 50px; height: 50px;">
+                                                {{ $logro->nombre }} - {{ $logro->descripcion }}
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </div>
                                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
                                     <!-- Profile Edit Form -->
@@ -302,6 +312,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             let cropper;
             const inputImage = document.getElementById('inputImage');
+            inputImage.value = '';
             const imageContainer = document.getElementById('imageContainer');
             const imageElement = document.getElementById('image');
             const cropButton = document.getElementById('cropButton');

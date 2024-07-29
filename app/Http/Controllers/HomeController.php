@@ -78,6 +78,9 @@ class HomeController extends Controller
             $urlfoto = 'assets/img/perfiles/' . $foto;
         }
 
+        // Obtener los logros del usuario
+        $logros = $user->logros;
+
         // Enviar los detalles del usuario a la vista
         return view('perfil', [
             'nombre' => $user->name,
@@ -85,6 +88,7 @@ class HomeController extends Controller
             'foto' => $urlfoto,
             'descripcion' => $user->descripcion,
             'creado_el' => $user->created_at,
+            'logros' => $logros,
         ]);
     }
 
