@@ -90,6 +90,7 @@ class HomeController extends Controller
             'creado_el' => $user->created_at,
             'logros' => $logros,
         ]);
+        
     }
 
     public function actualizar(Request $request)
